@@ -1,0 +1,48 @@
+工作站调用,传入用户编号列表,查询出用户简要信息返回给工作站
+http://10.0.10.234:8088/abutmentServer/abutment/getUserInfoByUserIds.do
+参数:{'userIds':['000000002','000000003']}
+返回:{"message":"成功","code":200,"userBriefs":[{"userId":"000000002","userName":"报警中心","userAddr":null,"areaName":"邯郸市","contact":null,"cPhone":null,"cMobile":null,"pnlTel":null,"pnlHdTel":null},{"userId":"000000003","userName":"客服002","userAddr":null,"areaName":"邯郸市","contact":null,"cPhone":null,"cMobile":null,"pnlTel":null,"pnlHdTel":null}]}
+
+中心调用,传入用户编号列表和工作站,查询出用户简要信息给指定工作站
+http://10.0.10.234:8088/abutmentServer/abutment/sendUserInfo.do
+参数:{"stationNum"："","ueserIdArry":['000000002','000000003']}
+传给工作站的参数:{"userBriefs":[{"userId":"000000002","userName":"报警中心","userAddr":null,"areaName":"邯郸市","contact":null,"cPhone":null,"cMobile":null,"pnlTel":null,"pnlHdTel":null},{"userId":"000000003","userName":"客服002","userAddr":null,"areaName":"邯郸市","contact":null,"cPhone":null,"cMobile":null,"pnlTel":null,"pnlHdTel":null}]}
+返回:{ "result": "{}","code": "200","message": "推送成功"}
+
+
+联网报警系统调用,发送指定事件到指定工作站
+http://10.0.10.234:8088/abutmentServer/abutment/sendEventToStation.do
+参数:{"wsIds"：["",""],
+"AlertPojo":{
+ "eventNum":"5",
+ "eventTime":"userName2",
+ "eventLevel":"userAddr2",
+ "evtWay":"areaName2",
+ "eventDesc":"contact2",
+ "recieiveTime":"cPhone2",
+ "sysCode":"cMobile2",
+ "codeTypeId":"pnlTel2",
+ "accountNum":"pnlHdTel2",
+ "accountName":"",
+ "accountAddr":"",
+ "accountZone":"",
+ "usrAlmType":"",
+ "devSubSys":"",
+ "cameraName":"",
+ "userMonitorId":"",
+ "cameraModelId":"",
+ "alarmAddr":"",
+ "atPos":"",
+ "devId":"",
+ "devZoneId":"",
+ "devModelName":"",
+ "zoneAtPos":"",
+ "snType":"",
+ "almType":"",
+ "wantDo":"",
+ "areaId":"",
+ "areaName":"",
+ "snModelName":""
+}
+}
+返回:{ "result": "{}","code": "200","message": "推送成功"}
